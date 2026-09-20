@@ -25,23 +25,28 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
         /* HEADER & NAV */
-        header { padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); background: var(--bg-main); position: sticky; top: 0; z-index: 100;}
-        .header-wrap { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
-        .logo { font-size: 1.5rem; font-weight: 600; color: var(--text-dark); text-decoration: none; white-space: nowrap; }
-        .nav-links { display: flex; gap: 14px; align-items: center; white-space: nowrap; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.85rem; transition: color 0.3s; white-space: nowrap; }
+        header { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); background: var(--bg-main); position: sticky; top: 0; z-index: 100; }
+        .header-wrap { display: flex; justify-content: space-between; align-items: center; gap: 10px; width: 100%; }
+        .logo { font-size: 1.3rem; font-weight: 600; color: var(--text-dark); text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+        
+        .nav-links { display: flex; gap: 8px; align-items: center; white-space: nowrap; flex-wrap: nowrap; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.78rem; transition: color 0.3s; white-space: nowrap; }
         .nav-links a:hover { color: var(--terracotta); }
         .nav-links .btn-accent-nav { color: var(--terracotta); font-weight: 600; border-bottom: 2px solid var(--terracotta); padding-bottom: 2px; }
-        .social-btns { display: flex; gap: 8px; white-space: nowrap; }
-        .btn-social { display: flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 40px; text-decoration: none; font-weight: 500; font-size: 0.8rem; border: 1px solid var(--text-dark); color: var(--text-dark); transition: all 0.3s ease; white-space: nowrap; }
+        
+        .header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .social-btns { display: flex; gap: 5px; white-space: nowrap; }
+        .btn-social { display: flex; align-items: center; gap: 4px; padding: 5px 10px; border-radius: 40px; text-decoration: none; font-weight: 500; font-size: 0.75rem; border: 1px solid var(--text-dark); color: var(--text-dark); transition: all 0.3s ease; white-space: nowrap; }
         .btn-social:hover { background: var(--text-dark); color: var(--bg-main); }
-        /* Языковой переключатель */
-        .lang-picker { display: flex; gap: 4px; background: rgba(0,0,0,0.05); padding: 3px; border-radius: 20px; margin-left: 8px; }
-        .lang-btn { background: none; border: none; padding: 3px 7px; font-size: 0.75rem; font-weight: 600; color: var(--text-dark); cursor: pointer; border-radius: 10px; transition: all 0.2s ease; }
+        
+        /* Language Selector Styles */
+        .lang-picker { display: flex; gap: 2px; background: rgba(0,0,0,0.05); padding: 2px; border-radius: 20px; flex-shrink: 0; }
+        .lang-btn { background: none; border: none; padding: 3px 6px; font-size: 0.7rem; font-weight: 600; color: var(--text-dark); cursor: pointer; border-radius: 10px; transition: all 0.2s ease; }
         .lang-btn.active, .lang-btn:hover { background: var(--terracotta); color: #FFF; }
-        .goog-te-banner-frame, .skiptranslate { display: none !important; }
+        
+        /* Приховуємо службові панелі Google Translate */
+        .goog-te-banner-frame, .skiptranslate, #google_translate_element { display: none !important; }
         body { top: 0 !important; }
-
         /* BUTTONS */
         .btn-primary { background: var(--terracotta); color: #FFF; border: none; padding: 18px 36px; border-radius: 40px; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity 0.3s; }
         .btn-primary:hover { opacity: 0.88; }
@@ -113,7 +118,7 @@
 <body>
 
     <!-- HEADER -->
-   <header>
+  <header>
         <div class="container header-wrap">
             <a href="#" class="logo" onclick="switchTab('main'); return false;">Геннадий Левченко</a>
             <nav class="nav-links">
@@ -125,21 +130,21 @@
                 <a href="#booking" onclick="switchTab('main', 'booking')">Запись</a>
                 <a href="#" onclick="switchTab('berlin')" class="btn-accent-nav">Массаж в Берлине</a>
             </nav>
-            <div style="display: flex; align-items: center;">
+            <div class="header-right">
                 <div class="social-btns">
                     <a href="https://wa.me/" target="_blank" class="btn-social">WhatsApp</a>
                     <a href="https://t.me/" target="_blank" class="btn-social">Telegram</a>
                 </div>
                 <div class="lang-picker">
-                    <button class="lang-btn active" onclick="translatePage('ru', this)">RU</button>
-                    <button class="lang-btn" onclick="translatePage('en', this)">EN</button>
-                    <button class="lang-btn" onclick="translatePage('de', this)">DE</button>
-                    <button class="lang-btn" onclick="translatePage('uk', this)">UA</button>
+                    <button class="lang-btn active" onclick="setLang('ru', this)">RU</button>
+                    <button class="lang-btn" onclick="setLang('en', this)">EN</button>
+                    <button class="lang-btn" onclick="setLang('de', this)">DE</button>
+                    <button class="lang-btn" onclick="setLang('uk', this)">UA</button>
                 </div>
             </div>
         </div>
     </header>
-    <div id="google_translate_element" style="display:none;"></div>
+    <div id="google_translate_element"></div>
        
         </div>
     </header>
@@ -815,6 +820,72 @@
             }
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></script>
+   <!-- СКРИПТ АВТОПЕРЕВОДА И ФУНКЦИОНАЛА -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ru',
+                includedLanguages: 'en,de,uk,ru',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function setLang(langCode, btn) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            if (langCode === 'ru') {
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname;
+                location.reload();
+                return;
+            }
+
+            document.cookie = "googtrans=/ru/" + langCode + "; path=/;";
+            document.cookie = "googtrans=/ru/" + langCode + "; path=/; domain=" + location.hostname;
+            
+            let select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
+            } else {
+                location.reload();
+            }
+        }
+    </script>
+    <!-- СКРИПТ АВТОПЕРЕВОДА И ФУНКЦИОНАЛА -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ru',
+                includedLanguages: 'en,de,uk,ru',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function setLang(langCode, btn) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            if (langCode === 'ru') {
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname;
+                location.reload();
+                return;
+            }
+
+            document.cookie = "googtrans=/ru/" + langCode + "; path=/;";
+            document.cookie = "googtrans=/ru/" + langCode + "; path=/; domain=" + location.hostname;
+            
+            let select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
+            } else {
+                location.reload();
+            }
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
