@@ -120,15 +120,15 @@
     <!-- HEADER -->
   <header>
         <div class="container header-wrap">
-            <a href="#" class="logo" onclick="switchTab('main'); return false;">Геннадий Левченко</a>
+            <a href="#" class="logo" onclick="switchTab('page-main'); return false;">Геннадий Левченко</a>
             <nav class="nav-links">
-                <a href="#about" onclick="switchTab('main', 'about')">О Тренере</a>
-                <a href="#method" onclick="switchTab('main', 'method')">Метод</a>
-                <a href="#training" onclick="switchTab('main', 'training')">Индивидуальные тренировки</a>
-                <a href="#seminars" onclick="switchTab('main', 'seminars')">Семинары</a>
-                <a href="#articles" onclick="switchTab('main', 'articles')">Статьи</a>
-                <a href="#booking" onclick="switchTab('main', 'booking')">Запись</a>
-                <a href="#" onclick="switchTab('berlin')" class="btn-accent-nav">Массаж в Берлине</a>
+                <a href="#about" onclick="switchTab('page-main', 'about'); return false;">О Тренере</a>
+                <a href="#method" onclick="switchTab('page-main', 'method'); return false;">Метод</a>
+                <a href="#training" onclick="switchTab('page-main', 'formats'); return false;">Индивидуальные тренировки</a>
+                <a href="#seminars" onclick="switchTab('page-main', 'seminars'); return false;">Семинары</a>
+                <a href="#articles" onclick="switchTab('page-main', 'articles'); return false;">Статьи</a>
+                <a href="#booking" onclick="switchTab('page-main', 'booking'); return false;">Запись</a>
+                <a href="#" onclick="switchTab('page-berlin'); return false;" class="btn-accent-nav">Массаж в Берлине</a>
             </nav>
             <div class="header-right">
                 <div class="social-btns">
@@ -146,8 +146,6 @@
     </header>
     <div id="google_translate_element"></div>
        
-        </div>
-    </header>
 
     <!-- ================= PAGE 1: MAIN ================= -->
     <div id="page-main" class="page-content active">
@@ -301,16 +299,13 @@
         </section>
 
         <!-- BLOCK 8: YOUTUBE -->
-       <section id="video">
+      <!-- BLOCK 8: YOUTUBE -->
+        <section id="video">
             <div class="container">
                 <h2 class="section-title">Практика и методы</h2>
                 <div style="max-width: 320px; margin: 0 auto;">
                     <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
                         <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube.com/embed/ijfYX6IxckM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
                     </div>
                 </div>
             </div>
@@ -433,11 +428,12 @@
     </div>
 
     <!-- ================= PAGE 2: BERLIN MASSAGE ================= -->
+    <!-- ================= PAGE 2: BERLIN MASSAGE ================= -->
     <div id="page-berlin" class="page-content">
         <section style="padding-top: 40px; background: #FFF;">
             <div class="container hero-split">
                 <div class="hero-text">
-                    <a href="#" onclick="switchTab('main')" style="display: inline-block; margin-bottom: 20px; color: var(--terracotta); font-weight: 500; text-decoration: none;">← Вернуться на главную</a>
+                    <a href="#" onclick="switchTab('page-main'); return false;" style="display: inline-block; margin-bottom: 20px; color: var(--terracotta); font-weight: 500; text-decoration: none;">← Вернуться на главную</a>
                     <h1>Восстановительный массаж в Берлине</h1>
                     <p>Расслабление и восстановление, приватная атмосфера без шума и суеты.</p>
                     <a href="#booking-berlin" class="btn-primary">Забронировать удобный слот</a>
@@ -490,7 +486,6 @@
                 </div>
             </div>
         </section>
-
         <!-- BERLIN BLOCK 4: ABOUT & LOCATION -->
         <section>
             <div class="container flex-split">
