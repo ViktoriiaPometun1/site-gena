@@ -727,15 +727,23 @@
     <!-- INTERACTIVE SCRIPTS -->
     <script>
         function switchTab(tabId) {
-            document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
-            if (tabId.startsWith('article-')) {
-                document.getElementById('page-' + tabId).classList.add('active');
-            } else if (tabId === 'berlin') {
-                document.getElementById('page-berlin').classList.add('active');
-            } else {
-                document.getElementById('page-main').classList.add('active');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            function switchTab(tabId, anchorId) {
+    const pages = document.querySelectorAll('.page-content');
+    pages.forEach(page => page.classList.remove('active'));
+    
+    if (tabId === 'berlin') {
+        document.getElementById('page-berlin').classList.add('active');
+        window.scrollTo(0, 0);
+    } else {
+        document.getElementById('page-main').classList.add('active');
+        if (anchorId) {
+            const target = document.getElementById(anchorId);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }
+}
         }
 
         function selectType(btn) {
