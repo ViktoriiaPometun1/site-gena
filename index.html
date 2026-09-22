@@ -537,43 +537,158 @@
     </div>
 
     <!-- ================= PAGE 2: BERLIN MASSAGE ================= -->
-    <div id="page-berlin" class="page-content">
+   <div id="page-berlin" class="page-content">
         
-        <section style="padding-top: 40px; background: #FFF; border-bottom: 1px solid var(--border-color);">
-            <div class="container hero-split">
-                <div class="hero-text">
-                    <a href="#" onclick="switchTab('page-main'); return false;" style="display: inline-block; margin-bottom: 16px; color: var(--dark-green); font-weight: 500; text-decoration: none;">← Вернуться на главную</a>
-                    <h1 style="font-size: 3rem;">Баночный массаж в Берлине</h1>
-                    <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 28px;">
-                        <strong>Полтора часа, чтобы почувствовать себя обновлённым.</strong><br>
-                        Есть состояния, которые трудно описать словами: когда тело лёгкое, тёплое и послушное, дыхание глубокое, а внутри тихо и спокойно. Баночный массаж помогает вернуться именно в это состояние.
-                    </p>
-                    <a href="#booking-berlin" onclick="let el=document.getElementById('booking-berlin'); if(el) el.scrollIntoView({behavior:'smooth'}); return false;" class="btn-primary">Забронировать удобный слот</a>
+    <!-- HERO SECTION -->
+    <section style="padding-top: 40px; background: #FFF; border-bottom: 1px solid var(--border-color);">
+        <div class="container hero-split">
+            <div class="hero-text">
+                <a href="#" onclick="switchTab('page-main'); return false;" style="display: inline-block; margin-bottom: 16px; color: var(--dark-green); font-weight: 500; text-decoration: none;">← Вернуться на главную</a>
+                <h1 style="font-size: 3rem;">Баночный массаж в Берлине</h1>
+                <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 12px; font-weight: 600;">
+                    Полтора часа, чтобы почувствовать себя обновлённым.
+                </p>
+                <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 28px;">
+                    Есть состояния, которые трудно описать словами: когда тело лёгкое, тёплое и послушное, дыхание глубокое, а внутри тихо и спокойно. Баночный массаж помогает вернуться именно в это состояние.
+                </p>
+                <a href="#booking-berlin" onclick="let el=document.getElementById('booking-berlin'); if(el) el.scrollIntoView({behavior:'smooth'}); return false;" class="btn-primary">Записаться на удобный день и время</a>
+            </div>
+            <div class="hero-image">
+                <img src="studio-photo.jfif" alt="Студия массажа в Берлине" style="border-radius: var(--radius); width:100%;">
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILS & CARDS SECTION -->
+    <section style="padding: 60px 0;">
+        <div class="container" style="max-width: 1000px; margin: 0 auto;">
+            
+            <!-- 3 Columns Info Cards -->
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;">
+                <div class="card" style="text-align: left; background: #FFF; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-color);">
+                    <div class="icon-circle" style="margin-left: 0; margin-bottom: 16px;"><i class="ph ph-waves"></i></div>
+                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 12px;">Что это:</h3>
+                    <p style="margin-bottom: 12px;">Это глубокий, приятный массаж вакуумными банками. Они мягко и одновременно плотно воздействуют на кожу и фасцию, создают ощущение тепла и раскрытия, а тело отвечает глубоким расслаблением.</p>
+                    <p>Работаем со спиной, ягодицами, бедрами и животом, то есть с центром тела, где особенно хорошо чувствуется освобождение.</p>
                 </div>
-                <div class="hero-image">
-                    <img src="studio-photo.jfif" alt="Студия массажа в Берлине" style="border-radius: var(--radius); width:100%;">
+
+                <div class="card" style="text-align: left; background: #FFF; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-color);">
+                    <div class="icon-circle" style="margin-left: 0; margin-bottom: 16px;"><i class="ph ph-sparkle"></i></div>
+                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 12px;">После сеанса</h3>
+                    <p>После сеанса вы ощутите полное обновление, будто родились заново. Появится мощное ощущение свободы во всём теле, придут тепло и лёгкость. Дыхание станет глубоким, голова ясной, а внутри поселятся спокойствие и беспричинное счастье.</p>
+                </div>
+
+                <div class="card" style="text-align: left; background: #FFF; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-color);">
+                    <div class="icon-circle" style="margin-left: 0; margin-bottom: 16px;"><i class="ph ph-user-focus"></i></div>
+                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 12px;">Для кого.</h3>
+                    <p style="margin-bottom: 12px;">Для тех, кто много работает, устаёт и хочет вернуть себе лёгкость и удовольствие от собственного тела.</p>
+                    <p>И для тех, кто просто хочет 1,5 часа побыть наедине с собой, ни о чём не думая.</p>
                 </div>
             </div>
-        </section>
 
-        <section style="padding: 60px 0;">
-            <div class="container" style="max-width: 1000px; margin: 0 auto;">
-                
-                <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); margin-bottom: 40px;">
-                    <div class="card" style="text-align: left;">
-                        <div class="icon-circle" style="margin-left: 0;"><i class="ph ph-waves"></i></div>
-                        <h3 class="serif">Что это</h3>
-                        <p style="margin-bottom: 10px;">Это глубокий, приятный массаж вакуумными банками. Они мягко и одновременно плотно воздействуют на кожу и фасцию, создают ощущение тепла и раскрытия.</p>
-                        <p>Работаем со спиной, ягодицами, бедрами и животом — центром тела, где особенно хорошо чувствуется освобождение.</p>
+            <!-- How Session Passes -->
+            <div class="card" style="text-align: left; margin-bottom: 50px; background: #FFF; padding: 32px; border-radius: var(--radius); border: 1px solid var(--border-color);">
+                <h3 class="serif" style="font-size: 2rem; margin-bottom: 20px; text-align: center;">Как проходит сеанс.</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
+                    <div>
+                        <h4 style="font-size: 1.2rem; color: var(--dark-green); margin-bottom: 10px;">Процесс сеанса</h4>
+                        <p style="margin-bottom: 8px;"><strong>Массаж 1,5 часа:</strong> воздействие банками на спину, ягодицы, бедра и живот.</p>
+                        <p><strong>+Время тишины после сеанса,</strong> чтобы состояние успело усвоиться.</p>
                     </div>
-
-                    <div class="card" style="text-align: left;">
-                        <div class="icon-circle" style="margin-left: 0;"><i class="ph ph-user-focus"></i></div>
-                        <h3 class="serif">Для кого</h3>
-                        <p style="margin-bottom: 10px;">Для тех, кто много работает, устаёт и хочет вернуть себе лёгкость и удовольствие от собственного тела.</p>
-                        <p>И для тех, кто просто хочет 1,5 часа побыть наедине с собой, ни о чём не думая.</p>
+                    <div>
+                        <h4 style="font-size: 1.2rem; color: var(--dark-green); margin-bottom: 10px;">Курс: один сеанс в неделю</h4>
+                        <p>Мы рекомендуем ритм раз в неделю. Так каждый сеанс продолжает предыдущий: состояние лёгкости держится дольше, а тело привыкает расслабляться быстрее и глубже.</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- PRICE CARDS (ОКОШКИ ЦЕН) -->
+            <div style="margin-bottom: 60px;">
+                <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 30px;">Формат и стоимость</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                    
+                    <!-- Card 1 -->
+                    <div class="card" style="background: #FFF; padding: 28px 20px; border-radius: var(--radius); border: 1px solid var(--border-color); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 12px; color: var(--text-dark);">Разовый сеанс</h3>
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">120 €</div>
+                            <p style="color: var(--text-muted); font-size: 0.95rem;">один массаж</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card" style="background: #FFF; padding: 28px 20px; border-radius: var(--radius); border: 1px solid var(--border-color); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--text-dark);">Курс 6 сеансов</h3>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">(6 недель)</p>
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">660 €</div>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px;">курс</p>
+                            <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>110 €</strong> один массаж</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card" style="background: #FFF; padding: 28px 20px; border-radius: var(--radius); border: 2px solid var(--dark-green); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--text-dark);">Курс 12 сеансов</h3>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">(12 недель)</p>
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">1200 €</div>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px;">курс</p>
+                            <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>100 €</strong> один массаж</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card" style="background: #FFF; padding: 28px 20px; border-radius: var(--radius); border: 1px solid var(--border-color); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--text-dark);">Курс 18 сеансов</h3>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">(18 недель)</p>
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">1620 €</div>
+                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px;">курс</p>
+                            <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>90 €</strong> 1 массаж</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- GALLERY PROCESSES (photo5.jpg - photo9.jpg) -->
+            <div style="margin: 60px 0;">
+                <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 24px;">Галерея процессов</h2>
+                <div class="gallery-5-grid">
+                    <img src="photo5.jpg" alt="Процесс массажа 5">
+                    <img src="photo6.jpg" alt="Процесс массажа 6">
+                    <img src="photo7.jpg" alt="Процесс массажа 7">
+                    <img src="photo8.jpg" alt="Процесс массажа 8">
+                    <img src="photo9.jpg" alt="Процесс массажа 9">
+                </div>
+            </div>
+
+            <!-- BOOKING FORM -->
+            <div id="booking-berlin" style="margin-top: 60px;">
+                <div class="booking-box">
+                    <h3 class="serif" style="font-size: 2.2rem; text-align: center; margin-bottom: 8px;">Хотите попробовать?</h3>
+                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px;">Начните с разового сеанса или сразу выберите курс. Запишитесь на удобный день и время. Дальше календарь самозаписи.</p>
+
+                    <form onsubmit="event.preventDefault(); alert('Заявка на массаж принята! Мы свяжемся с вами в ближайшее время.');">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше Имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="WhatsApp / Telegram для связи" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Желаемый формат (Разовый / Курс) или удобные дни недели"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Забронировать массаж</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
 
                 <!-- GALLERY PROCESSES (5 ФОТО В РЯД) -->
                 <div style="margin: 50px 0;">
