@@ -13,9 +13,10 @@
             --bg-main: #FBF9F5;         
             --bg-card: #FFFFFF;
             --dark-green: #282522;
-            --accent-green: #d26f3a; 
-            --accent-green-hover: #c67d2f;
-            --terracotta: #C86D51;
+            --accent-green: #EAA082; 
+            --accent-green-hover: #D88E70;
+            --terracotta: #EAA082;
+            --sunset-soft: #FAF0EC;
             --text-dark: #2A2A2A;
             --text-muted: #666666;
             --border-color: #EBE6DF;
@@ -23,7 +24,7 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--text-dark); font-family: 'Montserrat', sans-serif; line-height: 1.6; scroll-behavior: smooth;}
+        body { background-color: var(--bg-main); color: var(--text-dark); font-family: 'Montserrat', sans-serif; line-height: 1.6; scroll-behavior: smooth; top: 0 !important; }
         h1, h2, h3, h4, .serif, .logo { font-family: 'Cormorant Garamond', serif; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -47,8 +48,9 @@
         .lang-btn { background: none; border: none; padding: 4px 8px; font-size: 0.7rem; font-weight: 600; color: var(--text-dark); cursor: pointer; border-radius: 10px; transition: all 0.2s ease; }
         .lang-btn.active, .lang-btn:hover { background: var(--dark-green); color: #FFF; }
         
-        .goog-te-banner-frame, .skiptranslate, #google_translate_element { display: none !important; }
-        body { top: 0 !important; }
+        /* Скрываем всплывающие панели Google */
+        .goog-te-banner-frame, .VIpgJd-Z443b-FWsAyd, .skiptranslate { display: none !important; }
+        #google_translate_element { display: none; }
 
         /* BUTTONS */
         .btn-primary { background: var(--accent-green); color: #FFF; border: none; padding: 16px 36px; border-radius: 40px; font-size: 0.95rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.3s; text-align: center; }
@@ -91,7 +93,7 @@
         .icon-circle {
             width: 64px;
             height: 64px;
-            background-color: #F3EFEA;
+            background-color: var(--sunset-soft);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -99,6 +101,27 @@
             margin: 0 auto 20px auto;
             color: var(--accent-green);
             font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .icon-circle i {
+            font-size: 1.8rem;
+            color: var(--accent-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* CARDS PRICE */
+        .price-card, 
+        .pricing-card,
+        .card-price {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-green) !important;
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         /* ARTICLES GRID CARDS */
@@ -119,7 +142,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
         
-        /* ИСПРАВЛЕННЫЕ КНОПКИ В СТАТЬЯХ (Вместо рыжих ссылок) */
         .btn-read-article {
             background: var(--dark-green);
             color: #FFF;
@@ -160,22 +182,6 @@
             margin-bottom: 20px;
         }
 
-        /* VIDEO SECTION (SHORTS) */
-        .video-container {
-            max-width: 340px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            background: #000;
-            aspect-ratio: 9/16;
-        }
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
         /* FORMATS */
         .format-card {
             background: var(--bg-card);
@@ -207,7 +213,7 @@
         .flex-split > div { flex: 1; }
         .flex-split img { width: 100%; border-radius: var(--radius); object-fit: cover; aspect-ratio: 4/3; }
 
-        /* BERLIN GALLERY (5 IN A ROW) */
+        /* BERLIN GALLERY */
         .gallery-5-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -332,7 +338,8 @@
                 </div>
             </div>
         </section>
-<!-- БЛОК: РАДИ ЧЕГО ЭТО ВСЁ -->
+
+        <!-- БЛОК: РАДИ ЧЕГО ЭТО ВСЁ -->
         <section style="padding: 60px 0; background: #FFF;">
             <div class="container" style="max-width: 1000px; margin: 0 auto;">
                 <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 36px;">Ради чего это всё?</h2>
@@ -362,6 +369,7 @@
                 </div>
             </div>
         </section>
+
         <!-- 3. ABOUT TRAINER -->
         <section id="about">
             <div class="container">
@@ -453,22 +461,29 @@
             </div>
         </section>
 
-       <!-- 6. VIDEO SECTION (ТРЕНИРОВКИ, КОТОРЫЕ МЕНЯЮТ ВАШУ ЖИЗНЬ) -->
-        <section style="background: #FFF;">
-            <div class="container">
-                <h2 class="section-title">Тренировки, которые меняют вашу жизнь</h2>
-                <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/ijfYX6IxckM?autoplay=1&mute=1&playsinline=1&rel=0" 
-                        title="Мотивационная презентация" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div style="text-align: center; max-width: 750px; margin: 40px auto 0 auto;">
-                    <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.7;">
-                        Сохранять баланс и искать равновесие. Это не просто упражнения, а ваш личный ресурс для достижения целей, силы тела и чистоты ума.
-                    </p>
+        <!-- 6. VIDEO SECTION -->
+        <section style="background: #FFF; padding: 50px 0;">
+            <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: center;">
+                    <div style="text-align: left;">
+                        <h2 class="serif" style="font-size: 2.2rem; line-height: 1.25; margin-bottom: 20px; color: var(--text-dark);">
+                            Тренировки, которые меняют вашу жизнь
+                        </h2>
+                        <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.6;">
+                            Сохранять баланс и искать равновесие. Это не просто упражнения, а ваш личный ресурс для достижения целей, силы тела и чистоты ума.
+                        </p>
+                    </div>
+                    <div style="max-width: 310px; width: 100%; margin: 0 auto;">
+                        <div style="position: relative; width: 100%; padding-bottom: 177.78%; height: 0; border-radius: var(--radius, 16px); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                            <iframe 
+                                src="https://www.youtube.com/embed/ijfYX6IxckM?autoplay=1&mute=1&playsinline=1&rel=0" 
+                                title="Мотивационная презентация" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -478,7 +493,6 @@
             <div class="container">
                 <h2 class="section-title">Авторские статьи и материалы Геннадия</h2>
                 <div class="grid-3">
-                    
                     <div class="article-card">
                         <div>
                             <div class="icon-circle" style="margin:0 0 16px 0;"><i class="ph ph-article"></i></div>
@@ -526,259 +540,314 @@
                         </div>
                         <button class="btn-read-article" onclick="switchTab('article-6')">Читать статью <i class="ph ph-arrow-right"></i></button>
                     </div>
-
                 </div>
             </div>
         </section>
-<!-- БЛОК: ОТЗЫВЫ -->
+
+        <!-- БЛОК: ОТЗЫВЫ -->
+        <section style="padding: 35px 0 50px 0;">
+            <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 45px;">
+                <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 28px;">Отзывы</h2>
+                
+                <div class="carousel-wrapper" style="position: relative; display: flex; align-items: center;">
+                    <button onclick="scrollReviews(-1)" aria-label="Назад" style="position: absolute; left: -20px; z-index: 10; background: #FFF; border: 1px solid #E5E5E5; color: var(--text-dark); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s ease;">
+                        <i class="ph ph-caret-left" style="font-size: 1.2rem;"></i>
+                    </button>
+
+                    <div id="reviews-track" style="display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 0; scrollbar-width: none; -ms-overflow-style: none;">
+                        <div class="card" style="min-width: 240px; width: 250px; flex: 0 0 auto; background: var(--sunset-soft); padding: 24px 20px; border-radius: var(--radius); border: none; display: flex; flex-direction: column; justify-content: flex-start; text-align: left;">
+                            <div style="font-size: 2.2rem; color: var(--accent-green); line-height: 1; margin-bottom: 10px; font-family: serif;">“</div>
+                            <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-dark);">«Доверие, принятие, с первой тренировки, вот не знаю как это описать. Я поверила, что ты сможешь мне помочь, и ты, тот учитель с кем я могу идти дальше в своем восприятии мира когда окрепну, так и случилось за что я очень тебе благодарна.»</p>
+                        </div>
+
+                        <div class="card" style="min-width: 240px; width: 250px; flex: 0 0 auto; background: var(--sunset-soft); padding: 24px 20px; border-radius: var(--radius); border: none; display: flex; flex-direction: column; justify-content: flex-start; text-align: left;">
+                            <div style="font-size: 2.2rem; color: var(--accent-green); line-height: 1; margin-bottom: 10px; font-family: serif;">“</div>
+                            <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-dark);">«Да, безусловно цена для меня была важна и это были и есть самые дорогие тренировки у меня, но я понимаю какой вклад идет в меня, и насколько это ценно и важно для меня.»</p>
+                        </div>
+
+                        <div class="card" style="min-width: 240px; width: 250px; flex: 0 0 auto; background: var(--sunset-soft); padding: 24px 20px; border-radius: var(--radius); border: none; display: flex; flex-direction: column; justify-content: flex-start; text-align: left;">
+                            <div style="font-size: 2.2rem; color: var(--accent-green); line-height: 1; margin-bottom: 10px; font-family: serif;">“</div>
+                            <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-dark);">«Ціна завжди має значення. Я зважую користь яку можу отримати за ці кошти. З першого заняття цінність була очевидною для мене.»</p>
+                        </div>
+
+                        <div class="card" style="min-width: 240px; width: 250px; flex: 0 0 auto; background: var(--sunset-soft); padding: 24px 20px; border-radius: var(--radius); border: none; display: flex; flex-direction: column; justify-content: flex-start; text-align: left;">
+                            <div style="font-size: 2.2rem; color: var(--accent-green); line-height: 1; margin-bottom: 10px; font-family: serif;">“</div>
+                            <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-dark);">«Після першого заняття за 2 роки в мене не було жодного сумніву, що я там, де хочу бути по-справжньому. Мені було і є цікаво займатися і жити з урахуванням результатів занять. Це і є фактор.»</p>
+                        </div>
+
+                        <div class="card" style="min-width: 240px; width: 250px; flex: 0 0 auto; background: var(--sunset-soft); padding: 24px 20px; border-radius: var(--radius); border: none; display: flex; flex-direction: column; justify-content: flex-start; text-align: left;">
+                            <div style="font-size: 2.2rem; color: var(--accent-green); line-height: 1; margin-bottom: 10px; font-family: serif;">“</div>
+                            <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-dark);">«За год я увидела огромные конкретные результаты и знала, сколько за этот период проделано работы. Понимание, что я теряю много времени в самостоятельных поисках, без учителя я не справляюсь.»</p>
+                        </div>
+
+                        <div class="card" style="min-width: 240px; width: 250px; flex: 0 0 auto; background: var(--sunset-soft); padding: 24px 20px; border-radius: var(--radius); border: none; display: flex; flex-direction: column; justify-content: flex-start; text-align: left;">
+                            <div style="font-size: 2.2rem; color: var(--accent-green); line-height: 1; margin-bottom: 10px; font-family: serif;">“</div>
+                            <p style="font-size: 0.88rem; line-height: 1.5; color: var(--text-dark);">«На первом месте личность, но были страхи, и в том числе и финансовая сторона. Первый урок рассеял сразу все... Выбор учителя - это судьба. Рада, что пришла к тебе!»</p>
+                        </div>
+                    </div>
+
+                    <button onclick="scrollReviews(1)" aria-label="Вперед" style="position: absolute; right: -20px; z-index: 10; background: #FFF; border: 1px solid #E5E5E5; color: var(--text-dark); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s ease;">
+                        <i class="ph ph-caret-right" style="font-size: 1.2rem;"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК FAQ -->
+        <section style="padding: 60px 0; background: #FFF;">
+            <div class="container">
+                <h2 class="serif" style="font-size: 2.8rem; text-align: center; margin-bottom: 40px; color: var(--text-dark);">
+                    Часто задаваемые вопросы
+                </h2>
+                
+                <div style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+                    <details style="background: var(--bg-card); border: 2px solid var(--accent-green); border-radius: var(--radius); padding: 20px 24px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(234, 160, 130, 0.08);">
+                        <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-dark); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            <span>Как проходит первый сеанс и как к нему подготовиться?</span>
+                            <i class="ph ph-caret-down" style="color: var(--accent-green); font-size: 1.3rem;"></i>
+                        </summary>
+                        <div style="margin-top: 14px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; border-top: 1px solid var(--accent-green); padding-top: 14px;">
+                            Специальной подготовки не требуется. На первом сеансе мы начнем с короткой беседы, чтобы обсудить ваше текущее состояние, запросы и возможные противопоказания, после чего перейдем к работе с телом.
+                        </div>
+                    </details>
+
+                    <details style="background: var(--bg-card); border: 2px solid var(--accent-green); border-radius: var(--radius); padding: 20px 24px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(234, 160, 130, 0.08);">
+                        <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-dark); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            <span>Сколько сеансов мне понадобится?</span>
+                            <i class="ph ph-caret-down" style="color: var(--accent-green); font-size: 1.3rem;"></i>
+                        </summary>
+                        <div style="margin-top: 14px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; border-top: 1px solid var(--accent-green); padding-top: 14px;">
+                            Для снятия разового напряжения достаточно одной встречи. Для глубокой и устойчивой работы с телом, осанкой и зажимами рекомендуется курс из 6, 12 или 18 сеансов с периодичностью 1 раз в неделю.
+                        </div>
+                    </details>
+
+                    <details style="background: var(--bg-card); border: 2px solid var(--accent-green); border-radius: var(--radius); padding: 20px 24px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(234, 160, 130, 0.08);">
+                        <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-dark); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            <span>Есть ли противопоказания к процедурам?</span>
+                            <i class="ph ph-caret-down" style="color: var(--accent-green); font-size: 1.3rem;"></i>
+                        </summary>
+                        <div style="margin-top: 14px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; border-top: 1px solid var(--accent-green); padding-top: 14px;">
+                            Основные противопоказания: острые воспалительные процессы, лихорадка, инфекционные заболевания кожи, а также тяжелые заболевания в стадии обострения. Если у вас есть сомнения, напишите мне до записи.
+                        </div>
+                    </details>
+
+                    <details style="background: var(--bg-card); border: 2px solid var(--accent-green); border-radius: var(--radius); padding: 20px 24px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(234, 160, 130, 0.08);">
+                        <summary style="font-weight: 600; font-size: 1.1rem; color: var(--text-dark); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            <span>Как отменить или перенести запись?</span>
+                            <i class="ph ph-caret-down" style="color: var(--accent-green); font-size: 1.3rem;"></i>
+                        </summary>
+                        <div style="margin-top: 14px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; border-top: 1px solid var(--accent-green); padding-top: 14px;">
+                            Вы можете перенести или отменить сеанс, предупредив меня не менее чем за 24 часа до визита через Telegram или WhatsApp.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК: ПРОМО-БЕРЛИН -->
+        <section style="background: var(--sunset-soft); padding: 60px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+            <div class="container" style="text-align: center; max-width: 800px;">
+                <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 12px;">Вы находитесь в Берлине?</h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 24px;">Приглашаем на очные сеансы восстановительного массажа в приватной студии.</p>
+                <a href="#" onclick="switchTab('page-berlin'); return false;" class="btn-primary">Подробнее о массаже и локации в Берлине →</a>
+            </div>
+        </section>
+
+        <!-- 8. BOOKING -->
+        <section id="booking" style="background: #FFF; padding: 60px 0;">
+            <div class="container" style="max-width: 1200px; margin: 0 auto;">
+                <div class="booking-box" style="background: var(--sunset-soft); border: 2px solid var(--accent-green); border-radius: var(--radius); padding: 40px 30px; box-shadow: 0 8px 24px rgba(234, 160, 130, 0.1);">
+                    <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 8px; color: var(--text-dark);">
+                        Запись на встречу / тренировку
+                    </h2>
+                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 32px; font-size: 0.95rem; line-height: 1.5;">
+                        Выберите удобный формат и время для бесплатной 15-минутной диагностики или сеанса.
+                    </p>
+
+                    <label style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 12px; display: block; letter-spacing: 0.5px; color: var(--text-dark);">
+                        1. Выберите формат:
+                    </label>
+                    <div class="slot-picker" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+                        <button class="type-btn active" onclick="selectType(this)" style="background: #FFF; border: 1.5px solid var(--accent-green); color: var(--text-dark); padding: 12px 16px; border-radius: var(--radius); cursor: pointer; text-align: left; font-weight: 500; transition: all 0.2s ease;">
+                            Знакомство-диагностика (15 мин) — Бесплатно
+                        </button>
+                        <button class="type-btn" onclick="selectType(this)" style="background: rgba(255,255,255,0.6); border: 1.5px solid transparent; color: var(--text-muted); padding: 12px 16px; border-radius: var(--radius); cursor: pointer; text-align: left; font-weight: 500; transition: all 0.2s ease;">
+                            Часовая тренировка / консультация (60 мин)
+                        </button>
+                    </div>
+
+                    <label style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 12px; display: block; letter-spacing: 0.5px; color: var(--text-dark);">
+                        2. Выберите свободный слот:
+                    </label>
+                    <div class="slot-picker" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px;">
+                        <button class="slot-btn active" onclick="selectSlot(this)" style="background: #FFF; border: 1.5px solid var(--accent-green); color: var(--text-dark); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 500;">Завтра, 11:00</button>
+                        <button class="slot-btn" onclick="selectSlot(this)" style="background: rgba(255,255,255,0.6); border: 1.5px solid transparent; color: var(--text-muted); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 500;">Завтра, 15:30</button>
+                        <button class="slot-btn" onclick="selectSlot(this)" style="background: rgba(255,255,255,0.6); border: 1.5px solid transparent; color: var(--text-muted); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 500;">Четверг, 10:00</button>
+                        <button class="slot-btn" onclick="selectSlot(this)" style="background: rgba(255,255,255,0.6); border: 1.5px solid transparent; color: var(--text-muted); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 500;">Четверг, 14:00</button>
+                        <button class="slot-btn" onclick="selectSlot(this)" style="background: rgba(255,255,255,0.6); border: 1.5px solid transparent; color: var(--text-muted); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 500;">Пятница, 12:00</button>
+                    </div>
+
+                    <form onsubmit="event.preventDefault(); alert('Заявка принята! Мы свяжемся с вами для подтверждения выбранного слота.');" style="display: flex; flex-direction: column; gap: 14px;">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше Имя" required style="width: 100%; padding: 14px 16px; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius); background: #FFF; font-size: 0.95rem; box-sizing: border-box;">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="WhatsApp / Telegram для связи" required style="width: 100%; padding: 14px 16px; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius); background: #FFF; font-size: 0.95rem; box-sizing: border-box;">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Ваш запрос" required style="width: 100%; padding: 14px 16px; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius); background: #FFF; font-size: 0.95rem; min-height: 90px; box-sizing: border-box; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%; padding: 16px; margin-top: 8px; font-size: 1rem; cursor: pointer;">
+                            Забронировать выбранное время
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================= PAGE 2: BERLIN MASSAGE ================= -->
+    <div id="page-berlin" class="page-content">
+        <section style="padding-top: 40px; background: #FFF; border-bottom: 1px solid var(--border-color);">
+            <div class="container hero-split">
+                <div class="hero-text">
+                    <a href="#" onclick="switchTab('page-main'); return false;" style="display: inline-block; margin-bottom: 16px; color: var(--dark-green); font-weight: 500; text-decoration: none;">← Вернуться на главную</a>
+                    <h1 style="font-size: 3rem;">Баночный массаж в Берлине</h1>
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 12px; font-weight: 600;">
+                        Полтора часа, чтобы почувствовать себя обновлённым.
+                    </p>
+                    <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 28px;">
+                        Есть состояния, которые трудно описать словами: когда тело лёгкое, тёплое и послушное, дыхание глубокое, а внутри тихо и спокойно. Баночный массаж помогает вернуться именно в это состояние.
+                    </p>
+                    <a href="#booking-berlin" onclick="let el=document.getElementById('booking-berlin'); if(el) el.scrollIntoView({behavior:'smooth'}); return false;" class="btn-primary">Записаться на удобный день и время</a>
+                </div>
+                <div class="hero-image">
+                    <img src="studio-photo.jfif" alt="Студия массажа в Берлине" style="border-radius: var(--radius); width:100%;">
+                </div>
+            </div>
+        </section>
+
         <section style="padding: 60px 0;">
             <div class="container" style="max-width: 1000px; margin: 0 auto;">
-                <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 36px;">Отзывы</h2>
-                
-                <div class="grid-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-                    
-                    <!-- Отзыв 1 -->
-                    <div class="card" style="background: #FFF5F2; padding: 28px 20px; border-radius: var(--radius); border: 1px solid #F0E2DE; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <div style="font-size: 2rem; color: var(--dark-green); line-height: 1; margin-bottom: 12px; font-family: serif;">“</div>
-                            <p style="font-size: 0.9rem; line-height: 1.5; color: var(--text-dark); margin-bottom: 12px;">«Доверие, принятие, с первой тренировки, вот не знаю как это описать. Я поверила, что ты сможешь мне помочь, и ты, тот учитель с кем я могу идти дальше в своем восприятии мира когда окрепну, так и случилось за что я очень тебе благодарна.»</p>
-                            <p style="font-size: 0.9rem; line-height: 1.5; color: var(--text-dark);">«Да, безусловно цена для меня была важна и это были и есть самые дорогие тренировки у меня, но я понимаю какой вклад идет в меня, и насколько это ценно и важно для меня.»</p>
-                        </div>
+                <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;">
+                    <div class="card" style="text-align: left; background: #FFF; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-color);">
+                        <div class="icon-circle" style="margin-left: 0; margin-bottom: 16px;"><i class="ph ph-waves"></i></div>
+                        <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 12px;">Что это:</h3>
+                        <p style="margin-bottom: 12px;">Это глубокий, приятный массаж вакуумными банками. Они мягко и одновременно плотно воздействуют на кожу и фасцию, создают ощущение тепла и раскрытия, а тело отвечает глубоким расслаблением.</p>
+                        <p>Работаем со спиной, ягодицами, бедрами и животом, то есть с центром тела, где особенно хорошо чувствуется освобождение.</p>
                     </div>
 
-                    <!-- Отзыв 2 -->
-                    <div class="card" style="background: #FFF5F2; padding: 28px 20px; border-radius: var(--radius); border: 1px solid #F0E2DE; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <div style="font-size: 2rem; color: var(--dark-green); line-height: 1; margin-bottom: 12px; font-family: serif;">“</div>
-                            <p style="font-size: 0.9rem; line-height: 1.5; color: var(--text-dark);">«Ціна завжди має значення. Я зважую користь яку можу отримати за ці кошти. З першого заняття цінність була очевидною для мене.»</p>
-                        </div>
+                    <div class="card" style="text-align: left; background: #FFF; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-color);">
+                        <div class="icon-circle" style="margin-left: 0; margin-bottom: 16px;"><i class="ph ph-sparkle"></i></div>
+                        <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 12px;">После сеанса</h3>
+                        <p>После сеанса вы ощутите полное обновление, будто родились заново. Появится мощное ощущение свободы во всём теле, придут тепло и лёгкость. Дыхание станет глубоким, голова ясной, а внутри поселятся спокойствие и беспричинное счастье.</p>
                     </div>
 
-                    <!-- Отзыв 3 -->
-                    <div class="card" style="background: #FFF5F2; padding: 28px 20px; border-radius: var(--radius); border: 1px solid #F0E2DE; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <div style="font-size: 2rem; color: var(--dark-green); line-height: 1; margin-bottom: 12px; font-family: serif;">“</div>
-                            <p style="font-size: 0.9rem; line-height: 1.5; color: var(--text-dark);">«Після першого заняття за 2 роки в мене не було жодного сумніву, що я там, де хочу бути по-справжньому. Мені було і є цікаво займатися і жити з урахуванням результатів занять. Це і є фактор.»</p>
-                        </div>
+                    <div class="card" style="text-align: left; background: #FFF; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-color);">
+                        <div class="icon-circle" style="margin-left: 0; margin-bottom: 16px;"><i class="ph ph-user-focus"></i></div>
+                        <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 12px;">Для кого.</h3>
+                        <p style="margin-bottom: 12px;">Для тех, кто много работает, устаёт и хочет вернуть себе лёгкость и удовольствие от собственного тела.</p>
+                        <p>И для тех, кто просто хочет 1,5 часа побыть наедине с собой, ни о чём не думая.</p>
                     </div>
-
-                    <!-- Отзыв 4 -->
-                    <div class="card" style="background: #FFF5F2; padding: 28px 20px; border-radius: var(--radius); border: 1px solid #F0E2DE; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <div style="font-size: 2rem; color: var(--dark-green); line-height: 1; margin-bottom: 12px; font-family: serif;">“</div>
-                            <p style="font-size: 0.9rem; line-height: 1.5; color: var(--text-dark); margin-bottom: 12px;">«За год я увидела огромные конкретные результаты и знала, сколько за этот период проделано работы. Понимание, что я теряю много времени в самостоятельных поисках, без учителя я не справляюсь.»</p>
-                            <p style="font-size: 0.9rem; line-height: 1.5; color: var(--text-dark);">«На первом месте личность, но были страхи, и в том числе и финансовая сторона. Первый урок рассеял сразу все... Выбор учителя - это судьба. Рада, что пришла к тебе!»</p>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
-        </section>
-        <!-- 8. BOOKING -->
-        <section id="booking" style="background: #FFF;">
-            <div class="container">
-                <div class="booking-box">
-                    <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 8px;">Запись на встречу / тренировку</h2>
-                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 28px;">Выберите удобный формат и время для бесплатной 15-минутной диагностики или сеанса.</p>
 
-                    <label style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; display: block; letter-spacing: 0.5px;">1. Выберите формат:</label>
-                    <div class="slot-picker">
-                        <button class="type-btn active" onclick="selectType(this)">Знакомство-диагностика (15 мин) — Бесплатно</button>
-                        <button class="type-btn" onclick="selectType(this)">Часовая тренировка / консультация (60 мин)</button>
+                <div class="card" style="text-align: left; margin-bottom: 50px; background: #FFF; padding: 32px; border-radius: var(--radius); border: 1px solid var(--border-color);">
+                    <h3 class="serif" style="font-size: 2rem; margin-bottom: 20px; text-align: center;">Как проходит сеанс.</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
+                        <div>
+                            <h4 style="font-size: 1.2rem; color: var(--dark-green); margin-bottom: 10px;">Процесс сеанса</h4>
+                            <p style="margin-bottom: 8px;"><strong>Массаж 1,5 часа:</strong> воздействие банками на спину, ягодицы, бедра и живот.</p>
+                            <p><strong>+Время тишины после сеанса,</strong> чтобы состояние успело усвоиться.</p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 1.2rem; color: var(--dark-green); margin-bottom: 10px;">Курс: один сеанс в неделю</h4>
+                            <p>Мы рекомендуем ритм раз в неделю. Так каждый сеанс продолжает предыдущий: состояние лёгкости держится дольше, а тело привыкает расслабляться быстрее и глубже.</p>
+                        </div>
                     </div>
+                </div>
 
-                    <label style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; display: block; letter-spacing: 0.5px;">2. Выберите свободный слот:</label>
-                    <div class="slot-picker">
-                        <button class="slot-btn active" onclick="selectSlot(this)">Завтра, 11:00</button>
-                        <button class="slot-btn" onclick="selectSlot(this)">Завтра, 15:30</button>
-                        <button class="slot-btn" onclick="selectSlot(this)">Четверг, 10:00</button>
-                        <button class="slot-btn" onclick="selectSlot(this)">Четверг, 14:00</button>
-                        <button class="slot-btn" onclick="selectSlot(this)">Пятница, 12:00</button>
+                <div style="margin-bottom: 60px;">
+                    <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 30px;">Формат и стоимость</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                        <div class="card price-card">
+                            <div>
+                                <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 12px; color: var(--text-dark);">Разовый сеанс</h3>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">120 €</div>
+                                <p style="color: var(--text-muted); font-size: 0.95rem;">один массаж</p>
+                            </div>
+                        </div>
+                        <div class="card price-card">
+                            <div>
+                                <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--text-dark);">Курс 6 сеансов</h3>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">(6 недель)</p>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">660 €</div>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px;">курс</p>
+                                <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>110 €</strong> один массаж</p>
+                            </div>
+                        </div>
+                        <div class="card price-card">
+                            <div>
+                                <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--text-dark);">Курс 12 сеансов</h3>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">(12 недель)</p>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">1200 €</div>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px;">курс</p>
+                                <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>100 €</strong> один массаж</p>
+                            </div>
+                        </div>
+                        <div class="card price-card">
+                            <div>
+                                <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--text-dark);">Курс 18 сеансов</h3>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">(18 недель)</p>
+                                <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">1620 €</div>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px;">курс</p>
+                                <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>90 €</strong> 1 массаж</p>
+                            </div>
+                        </div>
                     </div>
+                </div>
 
-                    <form onsubmit="event.preventDefault(); alert('Заявка принята! Мы свяжемся с вами для подтверждения выбранного слота.');">
-                        <div class="form-group">
-                            <input type="text" placeholder="Ваше Имя" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="WhatsApp / Telegram для связи" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Ваш запрос" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary" style="width: 100%;">Забронировать выбранное время</button>
-                    </form>
+                <div style="margin: 60px 0;">
+                    <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 24px;">Галерея процессов</h2>
+                    <div class="gallery-5-grid">
+                        <img src="photo5.jpg" alt="Процесс массажа 5">
+                        <img src="photo6.jpg" alt="Процесс массажа 6">
+                        <img src="photo7.jpg" alt="Процесс массажа 7">
+                        <img src="photo8.jpg" alt="Процесс массажа 8">
+                        <img src="photo9.jpg" alt="Процесс массажа 9">
+                    </div>
+                </div>
+
+                <div id="booking-berlin" style="margin-top: 60px;">
+                    <div class="booking-box">
+                        <h3 class="serif" style="font-size: 2.2rem; text-align: center; margin-bottom: 8px;">Хотите попробовать?</h3>
+                        <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px;">Начните с разового сеанса или сразу выберите курс. Запишитесь на удобный день и время. Дальше календарь самозаписи.</p>
+
+                        <form onsubmit="event.preventDefault(); alert('Заявка на массаж принята! Мы свяжемся с вами в ближайшее время.');">
+                            <div class="form-group">
+                                <input type="text" placeholder="Ваше Имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="WhatsApp / Telegram для связи" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Желаемый формат (Разовый / Курс) или удобные дни недели"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary" style="width: 100%;">Забронировать массаж</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- ================= PAGE 2: BERLIN MASSAGE ================= -->
-   <div id="page-berlin" class="page-content">
-        
-    <!-- HERO SECTION -->
-    <section style="padding-top: 40px; background: #FFF; border-bottom: 1px solid var(--border-color);">
-        <div class="container hero-split">
-            <div class="hero-text">
-                <a href="#" onclick="switchTab('page-main'); return false;" style="display: inline-block; margin-bottom: 16px; color: var(--dark-green); font-weight: 500; text-decoration: none;">← Вернуться на главную</a>
-                <h1 style="font-size: 3rem;">Баночный массаж в Берлине</h1>
-                <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 12px; font-weight: 600;">
-                    Полтора часа, чтобы почувствовать себя обновлённым.
-                </p>
-                <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 28px;">
-                    Есть состояния, которые трудно описать словами: когда тело лёгкое, тёплое и послушное, дыхание глубокое, а внутри тихо и спокойно. Баночный массаж помогает вернуться именно в это состояние.
-                </p>
-                <a href="#booking-berlin" onclick="let el=document.getElementById('booking-berlin'); if(el) el.scrollIntoView({behavior:'smooth'}); return false;" class="btn-primary">Записаться на удобный день и время</a>
-            </div>
-            <div class="hero-image">
-                <img src="studio-photo.jfif" alt="Студия массажа в Берлине" style="border-radius: var(--radius); width:100%;">
-            </div>
-        </div>
-    </section>
-
-    <!-- DETAILS & CARDS SECTION -->
-    <section style="padding: 60px 0;">
-        <div class="container" style="max-width: 1000px; margin: 0 auto;">
-            
-            <!-- 3 Columns Info Cards -->
-            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px;">
-                <div class="card" style="text-align: left; background: #FFF; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-color);">
-                    <div class="icon-circle" style="margin-left: 0; margin-bottom: 16px;"><i class="ph ph-waves"></i></div>
-                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 12px;">Что это:</h3>
-                    <p style="margin-bottom: 12px;">Это глубокий, приятный массаж вакуумными банками. Они мягко и одновременно плотно воздействуют на кожу и фасцию, создают ощущение тепла и раскрытия, а тело отвечает глубоким расслаблением.</p>
-                    <p>Работаем со спиной, ягодицами, бедрами и животом, то есть с центром тела, где особенно хорошо чувствуется освобождение.</p>
-                </div>
-
-                <div class="card" style="text-align: left; background: #FFF; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-color);">
-                    <div class="icon-circle" style="margin-left: 0; margin-bottom: 16px;"><i class="ph ph-sparkle"></i></div>
-                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 12px;">После сеанса</h3>
-                    <p>После сеанса вы ощутите полное обновление, будто родились заново. Появится мощное ощущение свободы во всём теле, придут тепло и лёгкость. Дыхание станет глубоким, голова ясной, а внутри поселятся спокойствие и беспричинное счастье.</p>
-                </div>
-
-                <div class="card" style="text-align: left; background: #FFF; padding: 24px; border-radius: var(--radius); border: 1px solid var(--border-color);">
-                    <div class="icon-circle" style="margin-left: 0; margin-bottom: 16px;"><i class="ph ph-user-focus"></i></div>
-                    <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 12px;">Для кого.</h3>
-                    <p style="margin-bottom: 12px;">Для тех, кто много работает, устаёт и хочет вернуть себе лёгкость и удовольствие от собственного тела.</p>
-                    <p>И для тех, кто просто хочет 1,5 часа побыть наедине с собой, ни о чём не думая.</p>
-                </div>
-            </div>
-
-            <!-- How Session Passes -->
-            <div class="card" style="text-align: left; margin-bottom: 50px; background: #FFF; padding: 32px; border-radius: var(--radius); border: 1px solid var(--border-color);">
-                <h3 class="serif" style="font-size: 2rem; margin-bottom: 20px; text-align: center;">Как проходит сеанс.</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
-                    <div>
-                        <h4 style="font-size: 1.2rem; color: var(--dark-green); margin-bottom: 10px;">Процесс сеанса</h4>
-                        <p style="margin-bottom: 8px;"><strong>Массаж 1,5 часа:</strong> воздействие банками на спину, ягодицы, бедра и живот.</p>
-                        <p><strong>+Время тишины после сеанса,</strong> чтобы состояние успело усвоиться.</p>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 1.2rem; color: var(--dark-green); margin-bottom: 10px;">Курс: один сеанс в неделю</h4>
-                        <p>Мы рекомендуем ритм раз в неделю. Так каждый сеанс продолжает предыдущий: состояние лёгкости держится дольше, а тело привыкает расслабляться быстрее и глубже.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRICE CARDS (ОКОШКИ ЦЕН) -->
-            <div style="margin-bottom: 60px;">
-                <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 30px;">Формат и стоимость</h2>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-                    
-                    <!-- Card 1 -->
-                    <div class="card" style="background: #FFF; padding: 28px 20px; border-radius: var(--radius); border: 1px solid var(--border-color); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 12px; color: var(--text-dark);">Разовый сеанс</h3>
-                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">120 €</div>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">один массаж</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="card" style="background: #FFF; padding: 28px 20px; border-radius: var(--radius); border: 1px solid var(--border-color); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--text-dark);">Курс 6 сеансов</h3>
-                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">(6 недель)</p>
-                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">660 €</div>
-                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px;">курс</p>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>110 €</strong> один массаж</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="card" style="background: #FFF; padding: 28px 20px; border-radius: var(--radius); border: 2px solid var(--dark-green); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--text-dark);">Курс 12 сеансов</h3>
-                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">(12 недель)</p>
-                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">1200 €</div>
-                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px;">курс</p>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>100 €</strong> один массаж</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="card" style="background: #FFF; padding: 28px 20px; border-radius: var(--radius); border: 1px solid var(--border-color); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <h3 class="serif" style="font-size: 1.4rem; margin-bottom: 6px; color: var(--text-dark);">Курс 18 сеансов</h3>
-                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">(18 недель)</p>
-                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--dark-green); margin-bottom: 8px;">1620 €</div>
-                            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 4px;">курс</p>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;"><strong>90 €</strong> 1 массаж</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- GALLERY PROCESSES (photo5.jpg - photo9.jpg) -->
-            <div style="margin: 60px 0;">
-                <h2 class="serif" style="font-size: 2.5rem; text-align: center; margin-bottom: 24px;">Галерея процессов</h2>
-                <div class="gallery-5-grid">
-                    <img src="photo5.jpg" alt="Процесс массажа 5">
-                    <img src="photo6.jpg" alt="Процесс массажа 6">
-                    <img src="photo7.jpg" alt="Процесс массажа 7">
-                    <img src="photo8.jpg" alt="Процесс массажа 8">
-                    <img src="photo9.jpg" alt="Процесс массажа 9">
-                </div>
-            </div>
-
-            <!-- BOOKING FORM -->
-            <div id="booking-berlin" style="margin-top: 60px;">
-                <div class="booking-box">
-                    <h3 class="serif" style="font-size: 2.2rem; text-align: center; margin-bottom: 8px;">Хотите попробовать?</h3>
-                    <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px;">Начните с разового сеанса или сразу выберите курс. Запишитесь на удобный день и время. Дальше календарь самозаписи.</p>
-
-                    <form onsubmit="event.preventDefault(); alert('Заявка на массаж принята! Мы свяжемся с вами в ближайшее время.');">
-                        <div class="form-group">
-                            <input type="text" placeholder="Ваше Имя" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="WhatsApp / Telegram для связи" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Желаемый формат (Разовый / Курс) или удобные дни недели"></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary" style="width: 100%;">Забронировать массаж</button>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </section>
-</div>
-
-
-    <!-- ================= PAGE 3: FULL ARTICLES VIEWS ================= -->
+    <!-- ================= ARTICLES VIEWS ================= -->
     <div id="article-1" class="page-content">
         <div class="container article-view">
             <a href="#" onclick="switchTab('page-main', 'articles'); return false;" style="color: var(--dark-green); font-weight: 600; text-decoration: none; display: inline-block; margin-bottom: 15px;">← Назад к статьям</a>
             <h1 class="serif" style="font-size: 2.5rem; margin-bottom: 20px;">Воздействие массажа на нервную систему</h1>
             <p>В нашей коже имеется огромное количество разнообразных нервных рецепторов, которые связаны с внутренними органами. Именно эта необыкновенно сложная система рецепторов позволяет нам ощущать мир, получая различные сигналы – “объем”, “холод”, “тепло”, “расстояние”, “запах” и т.д.
-
-Каждый опытный массажист знает много техник, которые способны по-разному воздействовать на наши рецепторы и, соответственно, на нервную систему. Глубокий массаж может успокаивающе воздействовать на наше тело. Поверхностный легкий массаж тонизирует и возбуждает общее состояние. Удачно подобранные приемы массажа не только улучшают общее физиологическое состояние организма, но еще и дарят массу положительных ощущений и эмоций. 
-
-Выполняя массаж Гуа Ша, предпочтительно использовать чередование техник возбуждения и торможения. Например, вначале, - поверхностная спокойная форма работы. Затем - активная и сильная, тонизирующая техника. И, в конце, - медленная, “накрывающая” покоем.
-
+Каждый опытный массажист знает много техник, которые способны по-разному воздействовать на наши рецепторы и, соответственно, на нервную систему. Глубокий массаж может успокаивающе воздействовать на наше тело. Поверхностный легкий массаж тонизирует и возбуждает общее состояние. Удачно подобранные приемы массажа не только улучшают общее физиологическое состояние организма, но еще и дарят массу положительных ощущений и эмоций. Выполняя массаж Гуа Ша, предпочтительно использовать чередование техник возбуждения и торможения. Например, вначале, - поверхностная спокойная форма работы. Затем - активная и сильная, тонизирующая техника. И, в конце, - медленная, “накрывающая” покоем.
 Гуа Ша благотворно влияет на нервную систему (при воздействии на зоны спины, голеней, шеи и живота): улучшает сон, снижает тревожность, улучшает аппетит, снимает последствия нервных заболеваний.</p>
         </div>
     </div>
@@ -787,8 +856,40 @@
         <div class="container article-view">
             <a href="#" onclick="switchTab('page-main', 'articles'); return false;" style="color: var(--dark-green); font-weight: 600; text-decoration: none; display: inline-block; margin-bottom: 15px;">← Назад к статьям</a>
             <h1 class="serif" style="font-size: 2.5rem; margin-bottom: 20px;">Паттерн шага. Как правильно ходить</h1>
-            <p>Неэффективная ходьба – это передвижение с большими энергетическими затратами, за счет того, что нарушен паттерн шага, появляются компенсации. Могут возникнуть боли в коленях, между лопатками, в пояснице, стопах или шее.
+            <p>1.    Паттерн шага
+ПАТТЕРН ШАГА. БИОМЕХАНИКА ШАГА. КАК ПРАВИЛЬНО ХОДИТЬ.
+Паттерн шага — это шаблонное сбалансированное движение. Шаг является главнейшей потребностью человека. Мы совершаем это удивительное движение очень много раз за жизнь.
 
+Ходить на двух ногах, а тем более бежать на выносливость, продолжительное время может только человек.
+
+Паттерн шага закладывается в глубоком детстве, во время ползания. Ребенок, в идеале, должен пройти все этапы: ползание, качение, сидение, вставание, разнообразные попытки сделать шаг, падание. Так нервная система обучается и приобретает необходимый опыт, который помогает сформировать устойчивый, более менее нормальный паттерн движения на двух ногах.
+
+Поэтому нежелательно использовать приспособления, которые помогают научиться ходить быстрее, они лишают нервную систему важного опыта и в дальнейшем негативно отразятся, как на биомеханике ходьбы, так и на движениях в целом.
+
+Ходьба возможна, только благодаря скоординированной работе нашей нервной системы, так как вертикальное положение, больше про неустойчивость, нежели про равновесность..
+
+Мы стоим на двух динамичных опорах – стопах. Далее идут колени, затем бедра и поясница. Площадь опоры очень мала в соотношении с телом. Стопы и крестец — это фундамент. Без него крайне затруднительно построить дом.
+
+Таким образом на наших стопах лежит две задачи:
+⠀
+1. Должны обеспечить стабильную опору. То есть, она должна быть, с одной стороны - прочной и монолитной, с другой - пружинящей и подвижной.
+⠀
+2. Должны быть мобильны, чтобы была возможность подстраиваться под нестандартное статическое и динамическое движение.
+ 
+ 
+Паттерн шага
+Когда начинается движение вперед, происходит и падение тела вперед. В этот момент работают мышцы стабилизаторы, которые не дают нашему телу упасть: мышцы голени, бедра, ягодиц, спины и шеи. Чтобы не упасть, нога ставится вперед.
+
+В норме, как правило, когда делается шаг правой ногой вперёд, выносится вперёд и левая рука. Таким образом, бедро проворачивается влево, а верхняя часть тела компенсирует и проворачивается вправо.
+
+Стопа во время шага перекатывается от пятки, на вешнюю часть стопы, к основанию пальцев и отталкивается большим пальцем при следующем шаге. Очень часто происходит нарушения биомеханики из-за того, что нарушена связь с периферией: мы не чувствуем стопу, не умеем двигать пальцами, мышцы стопы ослаблены. Так же есть такой фактор, как неудобная обувь. Стопы в идеале, более-менее смотрят вперед. Вращение наружу максимум до 15 градусов. Бывает, что при ходьбе стопы разворачиваются наружу, как бы "елочкой". Это говорит о неправильном распределении усилия в мышцах.
+
+Голеностоп работает в разгибании, - когда пятка опускается на пол. Затем в сгибании, - когда отталкиваемся пальцем от поверхности. Если не хватает подвижности в суставе, будут нарушения в паттерне шага.
+
+Подвижность тазобедренных суставов должна обеспечивать возможность разгибания и ротации. Когда делается шаг вперед, таз вращается в сторону сзади стоящей ноги. С другой стороны, происходит разгибание в тазобедренном суставе. Часто проблема в том, что при разгибании не хватает гибкости и свободы движения. Что влечет за собой компенсации. Как правило в квадратной мышце. Или черезмерно работает подвздошная группа.
+
+В грудном отделе происходит ротация к впередистоящей ноге. Если не хватает этого движения в грудном отделе, нагрузку берет на себя поясница. Поэтому у многих людей после длительной ходьбы болит поясница.
+Во время выполнения шага у нас работает все тело: фасции, мышцы, кожа, кости, внутренние органы, диафрагмы и т. д. При нарушении паттерна шага возникают мышечные спазмы, что приводит к болям и дискомфорту, изменение осанки, более быстрый износ суставов.Неэффективная ходьба – это передвижение с большими энергетическими затратами, за счет того, что нарушен паттерн шага, появляются компенсации. Могут возникнуть боли в коленях, между лопатками, в пояснице, стопах или шее.
 Есть разные причины, которые нарушают паттерн шага, например:
 1. В основе любого нарушения движения лежит травма
 2. Как следствие, - недостаточная подвижность суставов
@@ -844,17 +945,20 @@
 — Брюшное или диафрагмальное
 — Комбинированное
 
-Система дыхания, помимо своих основных функций — обогащения кислородом, выполняет еще функцию защиты организма.
-К примеру, обычный кашель происходит так: в гортань попадают слизь или пыль, это рефлекторно раздражает центр кашля, и создаётся кашлевой толчок, с которым всё чужеродное удаляется из дыхательных путей. Чихание устроено по тому же принципу — оно удаляет патогены из слизистой носа.
-При попытке вдохнуть химически опасные вещества, тело пытается рефлекторно сделать задержку.
+Система дыхания, помимо своих основных функций, - обогащения кислородом, выполняет еще функцию защиты организма.
 
-Несмотря на то, что обычно мы не контролируем дыхание, мы можем частично осознать его и немного управлять им.
+К примеру, обычный кашель происходит так: в гортань попадают слизь или пыль, это рефлекторно раздражает центр кашля, и создаётся кашлевой толчок, с которым всё чужеродное удаляется из дыхательных путей.
 
-<i>«Когда вы задерживаете дыхание, вы приостанавливаете нервные импульсы в различных частях тела и затормаживаете кору головного мозга. Одной из задач пранаямы является увеличение длительности задержки дыхания. Чем больше задержка дыхания, тем больше промежуток времени между нервными импульсами и реакцией на них в мозге. Когда эта задержка достаточной продолжительности, возбуждение коры существенно уменьшается».</i>
+Чихание, устроено по тому же принципу — оно удаляет патогены из слизистой носа.
+При попытке вдохнуть химически опасные вещества, тело пытается рефлекторно сделать задержку. Например, при вдыхании аммиака дыхание самостоятельно останавливается: голосовые связки смыкаются, сужается просвет бронхов.
+Несмотря на то, что обычно мы не контролируем дыхание, мы можем частично осознать его и немного управлять им.
 
-<i>«Процесс дыхания связан с мозгом и с центральной нервной системой; это один из наиболее важных жизненных процессов в теле. Он также связан с гипоталамусом, управляющим эмоциональными реакциями. Хаотическое дыхание посылает хаотические импульсы в этот центр и, таким образом, порождает неадекватные реакции на различные воздействия».</i>
 
-Контроль над состоянием ума — важный навык йога. Когда мы медитируем, практикуем асаны, поём мантры — беспокойный ум создаёт барьер между нами и тем, на чём мы пытаемся сконцентрироваться. Владение техниками пранаямы позволяет решить эту проблему — углубить практику, сделать её эффективнее и расширить наше восприятие.</p>
+«Когда вы задерживаете дыхание, вы приостанавливаете нервные импульсы в различных частях тела и затормаживаете кору головного мозга. Одной из задач пранаямы является увеличение длительности задержки дыхания. Чем больше задержка дыхания, тем больше промежуток времени между нервными импульсами и реакцией на них в мозге. Когда эта задержка достаточной продолжительности, возбуждение коры существенно уменьшается».
+
+
+«Процесс дыхания связан с мозгом и с центральной нервной системой; это один из наиболее важных жизненных процессов в теле. Он имеет также связан с гипоталамусом, управляющим эмоциональными реакциями. Хаотическое дыхание посылает хаотические импульсы в этот центр и, таким образом, порождает неадекватные реакции на различные воздействия».
+Контроль над состоянием ума — важный навык йога. Когда мы медитируем, практикуем асаны, поём мантры — беспокойный ум создаёт барьер между нами и тем, на чём мы пытаемся сконцентрироваться. Владение техниками пранаямы позволяет решить эту проблему — углубить практику, сделать её эффективнее и расширить наше восприятие. </p>
         </div>
     </div>
 
@@ -862,16 +966,10 @@
         <div class="container article-view">
             <a href="#" onclick="switchTab('page-main', 'articles'); return false;" style="color: var(--dark-green); font-weight: 600; text-decoration: none; display: inline-block; margin-bottom: 15px;">← Назад к статьям</a>
             <h1 class="serif" style="font-size: 2.5rem; margin-bottom: 20px;">Теория шавасаны</h1>
-            <p>Отдельно выделим такое упражнение, как "шавасана", или поза трупа, или форма спящего. Из названия понятно, что упражнение может быть как самостоятельной практикой, так и выполнять функцию "входа", или чаще всего "выхода" из тренировки. Седация нервной системы и релаксация тела являются предметом исследования в этом упражнении. То есть, выполняя упражнение "шавасана" вы постепенно научаетесь системно расслабляться, как телом, так и сознанием. 
-
-Особенно важно успокоение сознания. Этот навык появляется, как следствие качественного и подробного расслабления тела: мышц, фасций, кожи. Под расслаблением сознания мы будем понимать ИСС (измененное состояние сознания), при котором внимание деконцентрируется. То есть, вы не спите, и не бодрствуете. Вы ни на чем конкретно не сосредоточены. По мере расслабления все большего количества тканей, сознание меняет свои свойства. Становится объёмным, и широким, и длинным. Тяжелым и одновременно легким. Возникает ощущение, как будто сознание — это пленка масла на поверхности воды. 
-
-Таким образом, вы достигаете условий трансформации сознания. Постепенно все активные процессы сознания, как явные, так и скрытые, плавно сворачиваются. Процесс бесконтрольного мышления останавливается. Движение мыслей и образов, как бы, отодвигается от вас. И постепенно, все открытые во внимании процессы исчерпывают себя, по причине отсутствия вашего интереса. Те процессы, которые упорно не схлопываются, следует завершить принудительно. Делается это методом согласия или несогласия, по поводу того, о чем мысль или образ. Например, вас беспокоит завтрашняя встреча у доктора. Вы расслабляетесь, но этот вопрос время от времени появляется снова. Необходимо среагировать на это либо согласием (Да, меня это беспокоит), либо несогласием (Нет, мне все это не интересно). И, если вам везет, вопрос и процесс мышления по этому поводу закрывается и перестает вас беспокоить. Вы можете спокойно продолжить расслабляться дальше.
-
-Получается следующая ситуация. Ваше тело постепенно в процессе выполнения протокола ротации мышечного расслабления успокаивается и "растекается" по полу. Далее деятельность вашего сознания затормаживается. Мысли останавливаются. Нервная система седируется. Вы попадаете в ИСС просоночно-пограничное. Особенность этого состояния в том, что по свойствам оно как сон. И у вас начинается регенерация и восстановление ресурсов. Так же, это ИСС обладает и свойствами ОСС (обычного состояния сознания). То есть, вы можете следить вниманием за происходящими процессами, как в теле, так и в сознании. Получается так, что вы как будто спите и видите сон, но очень реальный и вполне управляемый сон.
-
-<strong>Подведем итоги:</strong>
-"Поза спящего" — это отдельный вид тренировки. Навыки расслабления и спокойствия сознания, приобретенные с его помощью, являются платформой для целого ряда упражнений "внутренней работы". Также "шавасана" помогает усвоить всю ту работу, которую вы совершаете в процессе тренировки. Управление расслаблением — исключительно важный навык, на освоение которого не стоит жалеть ни времени, ни сил.</p>
+            <p>Теория шавасаны.
+Отдельно выделим такое упражнение, как "шавасана", или поза трупа, или форма спящего. Из названия понятно, что упражнение, может быть как самостоятельной практикой, так и выполнять функцию "входа", или чаще всего "выхода" из тренировки. Седация нервной системы и релаксация тела являются предметом исследования в этом упражнении. То есть, выполняя упражнение "шавасана" вы постепенно научаетесь системно расслабляться, как телом, так и сознанием. Особенно важно успокоение сознания. Этот навык появляется, как следствие качественного и подробного расслабления тела: мышц, фасций, кожи. Под расслаблением сознания мы будем понимать ИСС (измененное состояние сознания), при котором внимание деконцентрируется. То есть, вы не спите, и не бодрствуетете. Вы ни на чем конкретно не сосредоточены. По мере расслабления все большего количества тканей, сознание меняет свои свойства. Становится объёмным, и широким, и длинным. Тяжелым и одновременно легким. Возникает ощущение, как будто сознание — это пленка масла на поверхности воды.  Таким образом, вы достигаете условий трансформации сознания. Постепенно все активные процессы сознания, как явные, так и скрытые, плавно сворачиваются. Процесс бесконтрольного мышления останавливается. Движение мыслей и образов, как бы, отодвигается от вас. И постепенно, все открытые во внимании процессы исчерпывают себя, по причине отсутствия вашего интереса. Те процессы, которые упорно не схлопывваются следует завершить принудительно. Делается это методом согласия или несогласия, по поводу того, о чем мысль или образ. Например, вас беспокоит завтрашняя встреча у доктора. Вы расслабляетесь, но этот вопрос время от времени появляется снова. Необходимо среагировать на это либо согласием. Да, - меня это беспокоит. Либо несогласием, - нет, мне все это не интересно. И, если вам везет, вопрос, и процесс мышления по этому поводу закрывается и перестает вас беспокоить. Вы можете спокойно продолжить расслабляться дальше.
+Получается следующая ситуация. Ваше тело, постепенно, в процессе выполнения протокола ротации мышечного расслабления, успокаивается и, как бы, "растекается" по полу. Далее, деятельность вашего сознания затормаживается. Мысли останавливаются. Нервная система седируется. Вы попадаете в ИСС просоночно-пограничное. Особенность этого состояния в том, что по свойствам оно как сон. И у вас начинается регенерация и восстановление ресурсов. Так же, это ИСС обладает и свойствами ОСС (обычного состояния сознания). То есть, вы можете следить вниманием за происходящими процессами, как в теле, так и в сознании. Получается так, что вы, как будто спите и видите сон, но очень реальный и вполне управляемый сон.
+Подведем итоги. "Поза спящего" это отдельный вид тренировки. Навыки расслабления и спокойствия сознания, приобретенные с его помощью, являются платформой для целого ряда упражнений, так называемой "внутренней работы". Например, при работе в асане, качество расслабления является базовым и обязательным условием для адекватного и безопасного выполнения. Так же, "шавасана" по сути, помогает усвоить всю ту работу, которую вы совершает в процессе тренировки. То есть, управление расслаблением исключительно важный навык, на освоение которого не стоит жалеть ни времени, ни сил.</p>
         </div>
     </div>
 
@@ -880,37 +978,24 @@
             <a href="#" onclick="switchTab('page-main', 'articles'); return false;" style="color: var(--dark-green); font-weight: 600; text-decoration: none; display: inline-block; margin-bottom: 15px;">← Назад к статьям</a>
             <h1 class="serif" style="font-size: 2.5rem; margin-bottom: 20px;">Самомассаж лица</h1>
             <p><strong>Растирание руками лица и шеи</strong>
-Для растирания лица и шеи потребуется знание линий и понимание внутреннего усилия. Все линии для массажных движений - парные. Они расположены и на лице, и на шее. 
-1. Первое, и постоянно повторяемое движение, выполняется крест на крест, через все лицо и частично шею. Активная часть, воздействующая на лицо – это ладонь со стороны указательного пальца. Линии воздействия пересекаются в точке межбровья. 
-2. Второе движение - вращение вокруг глаз. Так называемые кошачьи движения (по аналогии с процессом умывания кошки). 
-3. Третье движение - растирание лба методом крис-кросс. 
-4. Далее - проработка жевательных мышц. 
-5. Затем растирание шеи в нескольких вариантах: ладонями из стороны в сторону на основании черепа; сжатие и перетирание шеи ладонями; крис-кросс на передней поверхности шеи. 
-6. Далее - проработка ушной раковины через сжатие и разминание. 
-7. Завершается данный маршрут гармонизацией теплом ладоней. Прикладываем ладони к лицу и провоцируем зевание.
+Для растирания лица и шеи потребуется знание линий и понимание внутреннего усилия. Все линии для массажных движений - парные.  Они расположены и на лице, и на шее. Первое, и постоянно повторяемое движение, выполняется крест на крест, через все лицо и частично шею. Активная часть, воздействующая на лицо – это ладонь со стороны указательного пальца. Линии воздействия пересекаются в точке межбровья. Второе движение - вращение вокруг глаз. Так называемые кошачьи движения. По аналогии с процессом умывания кошки. Третье движение - растирание лба методом крис-кросс. Далее, проработка жевательных мышц. Затем, растирание шеи в нескольких вариантах: ладонями из стороны в сторону, на основании черепа; сжатие и перетирание шеи ладонями; крис-кросс на передней поверхности шеи. Далее, проработка ушной раковины через сжатие и разминание. И завершается данный маршрут гармонизацией теплом ладоней. Прикладываем ладони к лицу и провоцируем зевание.
+
 
 <strong>Работа с точками у-син</strong>
-Для самомассажа лица потребуется знание точек и понимание внутреннего усилия. Все точки для массажа - парные. 
-— Первая точка относится к качеству Земли и соответствует желудку (под глазами на расстоянии ~2 см). 
-— Вторая точка расположена у крыла носа — качество Металла (легкие). 
-— Третья точка за ухом в месте крепления ключично-сосцевидной мышцы — качество Воды (почки). 
-— Четвертая точка печени — качество Дерева (в середине жевательных мышц). 
-— Пятая точка сердца — качество Огня (посередине бровей). 
-Маршрут завершается точками гармонизации на переднесерединном канале: межбровье, под носом, под нижней губой.
+Для самомассажа лица потребуется знание точек и так же, понимание внутреннего усилия. Возможно, в начале, пока не привыкните, пригодится зеркало. Все точки для массажа - парные.  Расположены на лице или шее. Первая точка относится к качествам земли и соответствует желудку. Эта точка находится под глазами на расстоянии, приблизительно 2 см.  Вторая точка расположена у крыла носа. И соответствует качеству металла и органу - легкие. Третья точка расположена за ухом в месте крепления ключично-сосцевидной мышцы. И соответствует качеству воды и органу – почки. Далее следует точка печени, качество – дерево. Она находится в средине жевательных мышц. Затем прорабатываете точку сердца, соответствующую качеству огня. Она расположена посередине бровей. И завершается данный маршрут точками гармонизации на переднесерединном канале. Точка межбровье. Точка под носом. И точка под нижней губой.
+
 
 <strong>Упражнения для шеи сидя</strong>
-Работа шеи заключается в ритмичном сжатии-выдавливании средним по силе усилием. Проработка идет через три плоскости:
-1. <i>Вертикальная плоскость:</i> движение наклон-прогиб. Руками создаем сопротивление. Опускаем голову вперед-вниз, затем отводим назад (3–6 раз).
-2. <i>Фронтальная плоскость:</i> движение ухо-плечо с самосопротивлением рук.
-3. <i>Горизонтальная плоскость:</i> не наклоняя голову, тянем макушку вверх.
+Для выполнения упражнений для шеи потребуется знание плоскостей, и как всегда, понимание внутреннего усилия. Работа шеи, заключается в ритмичном сжатии-выдавливании. При чем усилие должно быть средним по силе.
+Проработку шеи предлагаю осмыслить через три плоскости. Сначала прорабатываем вертикальную плоскость. Движение наклон-прогиб. Включаем сгибатели и разгибатели одновременно. Руками создаем сопротивление движению. Опускаем голову вперед - вниз, затем отводим назад. Выполняем достаточное, на сегодня, количество раз. Примерно 3-6 раз. Далее работаем во фронтальной плоскости. Работаем с само сопротивлением мышц антагонистов. Выполняем движение ухо-плечо. Руками создаем сопротивление движению. Затем выполняем движение в горизонтальной плоскости. Здесь, главное не наклонять голову. Важно тянуть макушку вверх.
+
 
 <strong>Упражнения для шеи лежа</strong>
-Ложимся на пол в Шавасану. Поднимаем голову так, чтобы затылок поднялся на 1 см от пола. Тянемся макушкой от себя, потом в себя, ладонями давим в пол. Поворачиваем голову в сторону и повторяем втягивание-вытягивание. Затем поворачиваем в другую сторону (3–6 раз). Далее прижимаем подбородок максимально к груди и пытаемся привстать (прямо и с поворотами головы).</p>
+Ложимся на пол в Шавасану. Поднимаем голову так, чтобы затылок поднялся на один сантиметр от пола. Сначала тянемся макушкой от себя, потом в себя. Ладонями давим в пол. Далее поворачиваем голову в сторону и повторяем втягивание – вытягивание. Руками продолжаем давить в пол в такт движению. Теперь поворачиваем голову в другую сторону. Выполняем достаточное, на сегодня, количество раз. Примерно 3-6 раз. Далее прижимаем подбородок максимально к груди и пытаемся привстать. Далее поворачиваем голову в сторону и так же пытаемся привстать. Затем поворачиваем голову в другую сторону и повторяем движение.</p>
         </div>
     </div>
 
     <!-- FOOTER -->
-    <!-- ================= DARK FOOTER ================= -->
     <footer class="dark-footer">
         <div class="footer-grid">
             <div>
@@ -940,27 +1025,35 @@
         </div>
     </footer>
 
-    <!-- JS SCRIPTS -->
+    <!-- SCRIPTS -->
     <script>
+        // Переключение страниц и переходов к секциям
         function switchTab(pageId, anchorId) {
             const pages = document.querySelectorAll('.page-content');
-            pages.forEach(page => page.classList.remove('active'));
+            pages.forEach(p => {
+                p.classList.remove('active');
+                p.style.display = 'none';
+            });
 
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.add('active');
-                
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.add('active');
+                target.style.display = 'block';
+
                 if (anchorId) {
                     setTimeout(() => {
-                        const targetAnchor = document.getElementById(anchorId);
-                        if (targetAnchor) {
-                            targetAnchor.scrollIntoView({ behavior: 'smooth' });
-                        }
+                        const elem = document.getElementById(anchorId);
+                        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
                     }, 50);
                 } else {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             }
+        }
+
+        function scrollReviews(direction) {
+            const track = document.getElementById('reviews-track');
+            if (track) track.scrollBy({ left: direction * 270, behavior: 'smooth' });
         }
 
         function selectType(btn) {
@@ -975,26 +1068,37 @@
             btn.classList.add('active');
         }
 
+        // Инициализация стандартного Google Translate
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'ru',
-                includedLanguages: 'en,de,uk,ru',
+                includedLanguages: 'ru,en,de,uk',
                 autoDisplay: false
             }, 'google_translate_element');
         }
 
+        // Переключение языка нажатием на кнопки
         function setLang(langCode, btn) {
-            const btns = btn.parentElement.querySelectorAll('.lang-btn');
-            btns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            if (btn) {
+                const btns = btn.parentElement.querySelectorAll('.lang-btn');
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
 
-            const select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = langCode;
-                select.dispatchEvent(new Event('change'));
+            // Установка куки языка
+            document.cookie = "googtrans=/ru/" + langCode + "; path=/";
+            document.cookie = "googtrans=/ru/" + langCode + "; path=/; domain=" + window.location.hostname;
+
+            // Вызов элемента перевода
+            const translateCombo = document.querySelector('.goog-te-combo');
+            if (translateCombo) {
+                translateCombo.value = langCode;
+                translateCombo.dispatchEvent(new Event('change'));
+            } else {
+                location.reload();
             }
         }
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
